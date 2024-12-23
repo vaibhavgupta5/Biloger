@@ -13,7 +13,17 @@ function NewBlog() {
   const { user } = useUser();
   const router = useRouter();
 
+
+  
+ 
   useEffect(() => {
+
+      if(user?.username === "" || user === null){
+        router.push("/signin");
+      }
+   
+  
+    
     // Initialize Quill editor
     const editor = new Quill("#editor-container", {
       theme: "snow",

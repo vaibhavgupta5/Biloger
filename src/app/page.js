@@ -2,11 +2,19 @@
 import Editor from "@/components/Quill";
 import { useUser } from "@clerk/nextjs";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { user } = useUser();
 
+
+
+  const router = useRouter();
   console.log(user);
+
+  if(!user){
+    router.push("/signin");
+  }
 
   const saveToDb = async (user) => {
     try {
@@ -29,14 +37,18 @@ export default function Home() {
   if (user && !savedUser) {
     try {
       saveToDb(user);
+      router.push(`/${user.username}`);
+
     } catch (error) {
       console.log(error);
+      router.push(`/${user.username}`);
+
     }
   }
 
   return (
     <div>
-      <Editor />
+     Nice eyes yaar
     </div>
   );
 }
