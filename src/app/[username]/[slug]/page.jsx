@@ -132,11 +132,11 @@ function BlogPage() {
   }
 
   return (
-    <div className="w-[100%] flex mx-auto p-6 sm:p-8 animate-[fadeIn_0.5s_ease-out] gap-6 bg-gray-50">
+    <div className="w-full flex flex-col md:flex-row mx-auto p-6 sm:p-8 animate-[fadeIn_0.5s_ease-out] gap-6 bg-gray-50">
       {/* Blog Post */}
-      <article className="bg-white w-[70%] shadow-lg rounded-xl overflow-hidden">
+      <article className="bg-white w-full md:w-[70%] shadow-lg rounded-xl overflow-hidden">
         {/* Image Section */}
-        <div className="w-full h-64 sm:h-80 md:h-96">
+        <div className="w-full h-full sm:h-80 md:h-96">
           <img
             src={blog.image || "/placeholder.svg"}
             alt={blog.name || "Blog Image"}
@@ -146,7 +146,7 @@ function BlogPage() {
 
         {/* Content Section */}
         <div className="p-6 sm:p-8">
-          <h1 className="text-4xl font-extrabold mb-4 text-gray-800 hover:text-blue-600 transition-colors">
+          <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-800 hover:text-blue-600 transition-colors">
             {blog.name || "Untitled Blog"}
           </h1>
           <div className="flex items-center text-gray-600 text-sm mb-6">
@@ -200,7 +200,6 @@ function BlogPage() {
               Share this Blog
             </h2>
             <div className="space-y-4">
-              WhatsApp
               <button
                 onClick={handleShareOnWhatsApp}
                 className="w-full flex items-center bg-green-500 text-white py-3 px-4 rounded-full hover:bg-green-600 transition-colors"
@@ -246,7 +245,7 @@ function BlogPage() {
       )}
 
       {/* Comments Section */}
-      <section className="h-[85vh] overflow-y-scroll text-black w-[30%] bg-white max-w-4xl shadow-lg rounded-xl overflow-hidden">
+      <section className="h-[85vh] overflow-y-scroll text-black w-full md:w-[30%] bg-white max-w-4xl shadow-lg rounded-xl overflow-hidden">
         <div className="p-6 sm:p-8">
           <h2 className="text-3xl font-bold mb-6 text-gray-800 flex items-center">
             <svg
@@ -270,7 +269,7 @@ function BlogPage() {
               {comments.map((comment, index) => (
                 <div
                   key={index}
-                  className="flex items-start  border-solid border-black border-[1px] bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="flex items-start border-solid border-black border-[1px] bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
                 >
                   <img
                     src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"
