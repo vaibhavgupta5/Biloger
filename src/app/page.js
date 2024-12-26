@@ -12,9 +12,9 @@ export default function Home() {
   const router = useRouter();
   console.log(user);
 
-  if(!user){
-    router.push("/signin");
-  }
+  // if(!user){
+  //   router.push("/signin");
+  // }
 
   const saveToDb = async (user) => {
     try {
